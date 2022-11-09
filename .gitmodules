@@ -1,0 +1,25 @@
+[submodule "extras"]
+	path = extras
+	url = https://android.googlesource.com/platform/system/extras
+[submodule "core"]
+	path = core
+	url = https://android.googlesource.com/platform/system/core
+[submodule "lib/protobuf"]
+	path = lib/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
+	branch = 21.x
+[submodule "lib/fmt"]
+	path = lib/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "lib/zlib"]
+	path = lib/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "logging"]
+	path = logging
+	url = https://android.googlesource.com/platform/system/logging
+[submodule "libbase"]
+	path = libbase
+	url = https://android.googlesource.com/platform/system/libbase
+[submodule "lib/boringssl"]
+	path = lib/boringssl
+	url = https://boringssl.googlesource.com/boringssl
