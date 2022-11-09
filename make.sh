@@ -113,6 +113,7 @@ rm -rf "$LIBOUTDIR"
 rm -rf "$LIBDIR/boringssl/build"
 cd "$LIBDIR/protobuf"
 make distclean
+rm -f 'configure~'
 cd "$LIBDIR/zlib"
 make distclean
 cd "$CURDIR"
