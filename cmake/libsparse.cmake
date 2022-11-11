@@ -23,7 +23,7 @@ add_executable(simg2img ${source_dir}/simg2img.cpp)
 target_include_directories(simg2img PRIVATE ${source_dir}/include)
 target_link_libraries(simg2img sparse zlibstatic base)
 
-add_executable(simg2simg EXCLUDE_FROM_ALL ${source_dir}/simg2simg.cpp) # TODO: Remove EXCLUDE_FROM_ALL when compilable
+add_executable(simg2simg ${source_dir}/simg2simg.cpp)
 target_compile_options(simg2simg PRIVATE -Wno-incompatible-pointer-types)
 target_include_directories(simg2simg PRIVATE ${source_dir}/include)
 target_link_libraries(simg2simg sparse zlibstatic base)
@@ -32,4 +32,4 @@ add_executable(append2simg ${source_dir}/append2simg.cpp)
 target_include_directories(append2simg PRIVATE ${source_dir}/include)
 target_link_libraries(append2simg sparse zlibstatic base)
 
-add_custom_target(libsparse_tools DEPENDS img2simg simg2img #[[simg2simg]] append2simg)
+add_custom_target(libsparse_tools DEPENDS img2simg simg2img simg2simg append2simg)
