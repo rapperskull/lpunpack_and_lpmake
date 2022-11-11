@@ -5,7 +5,7 @@ set(sources
   ${source_dir}/wipe.cpp
   ${source_dir}/ext4_sb.cpp
 )
-add_library(ext4_utils ${sources})
+add_library(ext4_utils EXCLUDE_FROM_ALL ${sources})
 target_include_directories(ext4_utils PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/libbase/include

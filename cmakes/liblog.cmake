@@ -9,7 +9,7 @@ set(sources
   ${source_dir}/logprint.cpp
   ${source_dir}/properties.cpp
 )
-add_library(log ${sources})
+add_library(log EXCLUDE_FROM_ALL ${sources})
 target_include_directories(log PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/core/libcutils/include

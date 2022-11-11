@@ -8,7 +8,7 @@ set(sources
   ${source_dir}/sparse_err.cpp
   ${source_dir}/sparse_read.cpp
 )
-add_library(sparse ${sources})
+add_library(sparse EXCLUDE_FROM_ALL ${sources})
 target_include_directories(sparse PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/libbase/include

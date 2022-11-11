@@ -9,7 +9,7 @@ set(sources
   ${source_dir}/utility.cpp
   ${source_dir}/writer.cpp
 )
-add_library(lp ${sources})
+add_library(lp EXCLUDE_FROM_ALL ${sources})
 target_include_directories(lp PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/libbase/include

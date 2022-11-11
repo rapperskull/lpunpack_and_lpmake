@@ -22,7 +22,7 @@ if(UNIX)
 else()
   set(err_src ${source_dir}/errors_windows.cpp ${source_dir}/utf8.cpp)
 endif()
-add_library(base ${sources} ${err_src})
+add_library(base EXCLUDE_FROM_ALL ${sources} ${err_src})
 target_include_directories(base PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/logging/liblog/include
