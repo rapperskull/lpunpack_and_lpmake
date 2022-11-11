@@ -1,6 +1,8 @@
 # lpunpack and lpmake
 
-build :
-./make.sh
-
-source code from aosp
+## How to build:
+    git clone https://github.com/rapperskull/lpunpack_and_lpmake.git
+    cd lpunpack_and_lpmake
+    git submodule update --init --recursive
+    cmake .
+    cmake --build .
