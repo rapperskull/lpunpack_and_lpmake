@@ -15,6 +15,8 @@ list(APPEND CMAKE_MODULE_PATH
   ${PROJECT_SOURCE_DIR}/lib/protobuf
 )
 
+file(MAKE_DIRECTORY ${EXECUTABLE_OUTPUT_PATH} ${LIBRARY_OUTPUT_PATH})
+
 include(liblog)
 add_subdirectory(lib/zlib EXCLUDE_FROM_ALL)
 include(libbase)
