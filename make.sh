@@ -23,14 +23,14 @@ case "$OSTYPE" in
   *)
   ;;
 esac
-$CC -std=c++17 -I"$INCLUDEDIR" -Iinclude -I"$LIBDIR/base/include" -DLIBLOG_LOG_TAG=1006 -DSNET_EVENT_LOG_TAG=1397638484 ${CFLAGS} -c log_event_list.cpp log_event_write.cpp logger_name.cpp logger_read.cpp logger_write.cpp logprint.cpp properties.cpp ${src}
+$CC -std=c++17 -I"$INCLUDEDIR" -Iinclude -DLIBLOG_LOG_TAG=1006 -DSNET_EVENT_LOG_TAG=1397638484 ${CFLAGS} -c log_event_list.cpp log_event_write.cpp logger_name.cpp logger_read.cpp logger_write.cpp logprint.cpp properties.cpp ${src}
 $AR rcs "$LIBOUTDIR/liblog.a" *.o
 rm -r *.o
 unset src
 
 cd "$LIBDIR/zlib"
 CFLAGS="-DHAVE_HIDDEN -DZLIB_CONST" ./configure --static
-make
+make libz.a
 
 cd "$CURDIR/libbase"
 case "$OSTYPE" in
@@ -107,15 +107,15 @@ ${CPP} -std=c++17 -I"$INCLUDEDIR" ${CFLAGS} -D_FILE_OFFSET_BITS=64 -o "$BINDIR/l
 ${CPP} -std=c++17 -I"$INCLUDEDIR" ${CFLAGS} -D_FILE_OFFSET_BITS=64 -o "$BINDIR/lpunpack" lpunpack.cc "$LIBOUTDIR/liblp.a" "$LIBOUTDIR/libsparse.a" "$LIBOUTDIR/libext4_utils.a" "$LIBDIR/zlib/libz.a" "$LIBOUTDIR/libbase.a" "$LIBOUTDIR/fmtlib.a" "$LIBOUTDIR/liblog.a" "$LIBOUTDIR/libcrypto_utils.a" "$LIBCRYPTODIR/libcrypto.a" -lpthread ${LDFLAGS}
 ${CPP} -std=c++17 -I"$INCLUDEDIR" ${CFLAGS} -D_FILE_OFFSET_BITS=64 -o "$BINDIR/lpdump" lpdump.cc dynamic_partitions_device_info.pb.cc lpdump_host.cc "$LIBOUTDIR/liblp.a" "$LIBOUTDIR/libsparse.a" "$LIBOUTDIR/libext4_utils.a" "$LIBDIR/zlib/libz.a" "$LIBOUTDIR/libbase.a" "$LIBOUTDIR/fmtlib.a" "$LIBOUTDIR/liblog.a" "$LIBOUTDIR/libcrypto_utils.a" "$LIBCRYPTODIR/libcrypto.a" "$LIBOUTDIR/libjsonpbparse.a" "$LIBPROTOBUF/libprotobuf.a" -lpthread ${LDFLAGS}
 
-rm -f dynamic_partitions_device_info.pb.h dynamic_partitions_device_info.pb.cc
+#rm -f dynamic_partitions_device_info.pb.h dynamic_partitions_device_info.pb.cc
 
-rm -rf "$LIBOUTDIR"
-rm -rf "$LIBDIR/boringssl/build"
-cd "$LIBDIR/protobuf"
-make distclean
-rm -f 'configure~'
-cd "$LIBDIR/zlib"
-make distclean
+#rm -rf "$LIBOUTDIR"
+#rm -rf "$LIBDIR/boringssl/build"
+#cd "$LIBDIR/protobuf"
+#make distclean
+#rm -f 'configure~'
+#cd "$LIBDIR/zlib"
+#make distclean
 cd "$CURDIR"
 
 $STRIP "$BINDIR/lpmake"
