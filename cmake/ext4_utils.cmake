@@ -11,3 +11,7 @@ target_include_directories(ext4_utils PRIVATE
   ${CMAKE_SOURCE_DIR}/libbase/include
 )
 target_compile_options(ext4_utils PRIVATE -fno-strict-aliasing)
+if(WIN32)
+  target_link_options(ext4_utils PRIVATE -lws2_32)
+endif()
+target_link_libraries(ext4_utils base zlibstatic)

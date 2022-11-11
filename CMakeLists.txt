@@ -7,17 +7,28 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Xclang -flto-visibility-public-std")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin/lib)
 
-include(cmakes/liblog.cmake)
+list(APPEND CMAKE_MODULE_PATH
+  ${CMAKE_CURRENT_LIST_DIR}/cmake
+  ${PROJECT_SOURCE_DIR}/lib/zlib
+  ${PROJECT_SOURCE_DIR}/lib/fmt
+  ${PROJECT_SOURCE_DIR}/lib/boringssl
+  ${PROJECT_SOURCE_DIR}/lib/protobuf
+)
+
+include(liblog)
 add_subdirectory(lib/zlib EXCLUDE_FROM_ALL)
-include(cmakes/base.cmake)
-include(cmakes/libsparse.cmake)
+include(libbase)
+include(libsparse)
 add_subdirectory(lib/fmt EXCLUDE_FROM_ALL)
-include(cmakes/liblp.cmake)
-include(cmakes/ext4_utils.cmake)
-include(cmakes/libcrypto_utils.cmake)
+include(liblp)
+include(ext4_utils)
+include(libcrypto_utils)
 add_subdirectory(lib/boringssl EXCLUDE_FROM_ALL)
 set(protobuf_BUILD_SHARED_LIBS OFF)
 add_subdirectory(lib/protobuf EXCLUDE_FROM_ALL)
 add_dependencies(libprotobuf zlibstatic)
-include(cmakes/libjsonpb.cmake)
-include(cmakes/partition_tools.cmake)
+include(libjsonpb)
+include(partition_tools)
+
+include(libvbmeta)
+include(vbmeta_tools)

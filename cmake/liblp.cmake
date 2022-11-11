@@ -18,3 +18,4 @@ target_include_directories(lp PRIVATE
   ${CMAKE_SOURCE_DIR}/lib/boringssl/include
 )
 target_compile_definitions(lp PRIVATE _FILE_OFFSET_BITS=64)
+target_link_libraries(lp crypto base log crypto_utils sparse ext4_utils zlibstatic)

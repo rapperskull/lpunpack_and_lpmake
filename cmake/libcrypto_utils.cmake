@@ -6,3 +6,4 @@ target_include_directories(crypto_utils PRIVATE
   ${source_dir}/include
   ${CMAKE_SOURCE_DIR}/lib/boringssl/include
 )
+target_link_libraries(crypto_utils crypto)

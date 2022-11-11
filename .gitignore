@@ -1,5 +1,6 @@
-bin/
-lib/lib/
+bin/*
+!bin/lib/
+bin/lib/*
 
 ## C++ .gitignore template
 # Prerequisites
